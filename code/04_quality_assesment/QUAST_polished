@@ -1,0 +1,23 @@
+#!/bin/bash -l
+#SBATCH -A uppmax2025-3-3
+#SBATCH -M snowy
+#SBATCH -p core
+#SBATCH -n 2
+#SBATCH -t 30:00
+#SBATCH -J quast_unpolished
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user mariia.chubataia.8934@student.uu.se
+#SBATCH --output=%x.%j.out
+
+# Load modules
+module load bioinfo-tools
+module load quast/5.0.2
+
+# Your commands
+
+python /sw/bioinfo/quast/5.0.2/rackham/bin/quast.py /home/mach8934/genome_analysis/data/03_polished_data/polished_assembly.fasta \
+        --eukaryote \
+        --threads 2 \
+        --large \
+        --labels Unpolished \
+        -o /home/mach8934/genome_analysis/data/04_quality_assesment/out_QUAST
