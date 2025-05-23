@@ -4,7 +4,7 @@
 #SBATCH -p core
 #SBATCH -n 2
 #SBATCH -t 30:00
-#SBATCH -J quast_unpolished
+#SBATCH -J quast_polished
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user mariia.chubataia.8934@student.uu.se
 #SBATCH --output=%x.%j.out
@@ -19,5 +19,5 @@ python /sw/bioinfo/quast/5.0.2/rackham/bin/quast.py /home/mach8934/genome_analys
         --eukaryote \
         --threads 2 \
         --large \
-        --labels Unpolished \
+        --labels Polished \
         -o /home/mach8934/genome_analysis/data/04_quality_assesment/out_QUAST
